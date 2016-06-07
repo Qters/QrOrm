@@ -19,7 +19,7 @@
 #include "generator/qrupdatesql.h"
 #include "generator/qrdeletesql.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QSqlError QrSqlHelper::call_query(QrSqlQuery &query, QSqlDatabase *database /* = nullptr */)
 {

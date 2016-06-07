@@ -1,6 +1,6 @@
 ﻿#include "generator/element/qrsqlcompare.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QrSqlCompare::QrSqlCompare() : QrSqlElement(0), type(is_equal_to){}
 

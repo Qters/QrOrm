@@ -8,7 +8,7 @@
 
 #include "entity/qrsqlquery.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 template <typename CLASS_NAME>
 QrDbResultsGuard<CLASS_NAME>::~QrDbResultsGuard(){

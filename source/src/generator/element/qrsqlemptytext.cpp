@@ -1,6 +1,6 @@
 ﻿#include "generator/element/qrsqlemptytext.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QrSqlEmptyText::QrSqlEmptyText()
     : QrSqlElement(0) {}

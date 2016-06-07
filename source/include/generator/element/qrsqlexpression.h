@@ -4,9 +4,7 @@
 #include "qrorm_global.h"
 #include "generator/element/qrsqlelement.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  * \brief SQL element to build a SQL expression (WHERE, AND, OR, etc.)
@@ -28,8 +26,6 @@ public:
     virtual QString toString() const;
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLEXPRESSION_H

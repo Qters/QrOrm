@@ -4,9 +4,7 @@
 #include "qrorm_global.h"
 #include "generator/element/qrsqlelement.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  * \brief SQL element to compare value (==, <, >, <=, >=, LIKE, NOT LIKE, etc.)
@@ -31,8 +29,6 @@ protected:
 
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLCOMPARE_H

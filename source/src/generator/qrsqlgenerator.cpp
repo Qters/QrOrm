@@ -8,9 +8,7 @@
 #include "generator/element/qrsqlemptytext.h"
 #include "generator/element/qrsqlelementtemp.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 class QrSqlGeneratorPrivate {
 public:
@@ -37,11 +35,9 @@ public:
     QrSqlTable *sqlTable;  //  table data class
 };
 
-}   //  namespace QrOrm
+NS_QRORM_END
 
-}   //  namespace Qters
-
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QVariantList QrSqlGeneratorPrivate::emptyValues = QVariantList();
 

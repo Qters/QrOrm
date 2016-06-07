@@ -2,7 +2,7 @@
 
 #include "entity/qrsqltable.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QString QrSelectSql::getSqlStatement()
 {

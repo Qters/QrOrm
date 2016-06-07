@@ -4,9 +4,7 @@
 #include "qrorm_global.h"
 #include "generator/element/qrsqlelement.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  * \brief SQL element to verify if a value is included into 2 other values
@@ -28,8 +26,6 @@ protected:
     QrSqlIsBetween::BetweenType type;
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLISBETWEEN_H

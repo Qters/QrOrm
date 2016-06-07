@@ -4,9 +4,7 @@
 #include "qrorm_global.h"
 #include "generator/element/qrsqlelement.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 class QRORMSHARED_EXPORT QrSqlIn : public QrSqlElement
 {
@@ -25,8 +23,6 @@ protected:
     QrSqlIn::InType type;
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLIN_H

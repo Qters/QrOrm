@@ -9,9 +9,7 @@
 
 #include "qrorm_global.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 class QrSqlDatabase;
 class QrSqlQuery;
@@ -60,9 +58,7 @@ public:
 //    return QSqlError();
 //}
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 
 #endif // QRSQLHELPER_H

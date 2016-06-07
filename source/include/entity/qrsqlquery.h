@@ -10,10 +10,7 @@
 
 #include "qrorm_global.h"
 
-
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  * \brief define a user SQL query added to default SQL query builded
@@ -118,8 +115,6 @@ private:
 
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLQUERY_H

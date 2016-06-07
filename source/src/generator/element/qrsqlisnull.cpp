@@ -1,6 +1,6 @@
 ﻿#include "generator/element/qrsqlisnull.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QrSqlIsNull::QrSqlIsNull()
     : QrSqlElement(0), type(QrSqlIsNull::is_null) { }

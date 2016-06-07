@@ -12,8 +12,8 @@
 
 #include "entity/qrsqldatabaseerror.h"
 
-using namespace Qters;
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
+USING_NS_QRCOMMON;
 
 QSqlDatabase QrSqlDatabase::null = QSqlDatabase();
 
@@ -22,7 +22,7 @@ QSqlDatabase QrSqlDatabase::createDatabase(QSqlError &dbError)
     QString connectionName_ = connectionName();
     dbError = QSqlError();
 
-    if (! QrCommon::QrFiler::fileExists (getDatabasePath ())) {
+    if (! QrFiler::fileExists (getDatabasePath ())) {
         dbError = QSqlError("'database file is not exist!'", "", QSqlError::ConnectionError);
         Q_ASSERT(false);
         return QrSqlDatabase::null;
@@ -53,7 +53,7 @@ QSqlDatabase QrSqlDatabase::createDatabase(QSqlError &dbError)
     Qt::HANDLE curThreadIdHandle = QThread::currentThreadId ();
     listDbByThread.insert (curThreadIdHandle, connectionName_);
 
-    QString curThreadId = QrCommon::QrStringCvter<Qt::HANDLE, QrCommon::QrIsPointer<Qt::HANDLE>::value>::toString (curThreadIdHandle);
+    QString curThreadId = QrStringCvter<Qt::HANDLE, QrIsPointer<Qt::HANDLE>::value>::toString (curThreadIdHandle);
     qDebug() << "create new database connection of " << params.databaseName
              << "in thread " << curThreadId << " with key " << connectionName_;
     return QSqlDatabase::database(connectionName_);
@@ -72,7 +72,7 @@ void QrSqlDatabase::setParams(const QrSqlDatabaseParams &value)
 QString QrSqlDatabase::connectionName() const
 {
     return params.databaseName +
-            QrCommon::QrStringCvter<Qt::HANDLE, QrCommon::QrIsPointer<Qt::HANDLE>::value>::toString (QThread::currentThreadId ());
+            QrStringCvter<Qt::HANDLE, QrIsPointer<Qt::HANDLE>::value>::toString (QThread::currentThreadId ());
 }
 
 QString QrSqlDatabase::getDatabasePath() const

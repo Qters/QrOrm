@@ -1,7 +1,6 @@
 ﻿#include "entity/qrsqlconfig.h"
 
-
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QR_SINGLETON_IMPLEMENT(QrSqlConfig)
 

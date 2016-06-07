@@ -3,9 +3,7 @@
 
 #include "generator/qrsqlgenerator.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  * QrSqlTable table;
@@ -25,8 +23,6 @@ protected:
     virtual QString getSqlStatement();
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRUPDATESQL_H

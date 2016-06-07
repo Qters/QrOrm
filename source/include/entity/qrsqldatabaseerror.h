@@ -3,9 +3,9 @@
 
 #include <QtSql/qsqldatabase.h>
 
-namespace Qters {
+#include "qrorm_global.h"
 
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  * \brief show last error of database
@@ -18,8 +18,6 @@ private:
     static QString formatLastError(const QSqlDatabase &db);
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLDATABASEERROR_H

@@ -4,9 +4,7 @@
 #include "qrorm_global.h"
 #include "generator/element/qrsqlelement.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  * \brief SQL element to verify if a value is null or not null (IS NULL, IS NOT NULL)
@@ -28,8 +26,6 @@ protected:
     QrSqlIsNull::NullType type;
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLISNULL_H

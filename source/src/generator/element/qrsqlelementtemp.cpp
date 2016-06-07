@@ -1,6 +1,6 @@
 ﻿#include "generator/element/qrsqlelementtemp.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QrSqlElementTemp::QrSqlElementTemp(): QrSqlElement(0) {}
 

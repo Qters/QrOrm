@@ -1,6 +1,6 @@
 #include "entity/qrsqltableinfo.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 bool QrSqlTableInfo::getPk() const
 {

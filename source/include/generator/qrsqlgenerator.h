@@ -6,7 +6,6 @@
 #include <QtCore/qsharedpointer.h>
 
 #include "qrglobal.h"
-
 #include "qrorm_global.h"
 #include "entity/qrsqlquery.h"
 #include "generator/element/qrsqlin.h"
@@ -17,9 +16,7 @@
 #include "generator/element/qrsqlisbetween.h"
 #include "generator/element/qrsqlexpression.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 class QrSqlTable;
 class QrSqlGeneratorPrivate;
@@ -308,8 +305,6 @@ private:
     QrSqlGenerator &addSqlIsBetween(const QVariant & val1, const QVariant & val2, QrSqlIsBetween::BetweenType type);
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLGENERATOR_H

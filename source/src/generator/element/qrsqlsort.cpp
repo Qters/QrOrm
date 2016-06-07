@@ -1,6 +1,6 @@
 ﻿#include "generator/element/qrsqlsort.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QrSqlSort::QrSqlSort()
     : QrSqlElement(0), type(QrSqlSort::order_asc){}

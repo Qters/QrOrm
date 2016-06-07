@@ -8,9 +8,7 @@
 
 #include "qrorm_global.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  *  table in database, would be use in table generator to generate sql statement,
@@ -48,8 +46,6 @@ private:
     QList<QPair<QString, QVariant> > customizedDbVals;  //  user customized values in sql query, no exist in db table, such as "count(*), col1 + col2, and so on ...
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLTABLE_H

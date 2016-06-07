@@ -7,7 +7,7 @@
 #include "entity/qrsqldatabase.h"
 #include "entity/qrsqlconfig.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QrSqlQuery::QrSqlQuery(const QString& _queryStatement)
     : queryStatement(_queryStatement)

@@ -1,6 +1,6 @@
 ﻿#include "generator/element/qrsqlexpression.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QrSqlExpression::QrSqlExpression()
     : QrSqlElement(0), type(QrSqlExpression::where) { }

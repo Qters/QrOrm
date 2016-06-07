@@ -9,7 +9,7 @@
 #include "qrdbresultsguard.h"
 #include "entity/qrsqlconfig.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 tst_db::tst_db()
     : QrSqlDatabase()

@@ -4,9 +4,7 @@
 #include "qrorm_global.h"
 #include "generator/element/qrsqlelement.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 class QRORMSHARED_EXPORT QrSqlLimit : public QrSqlElement
 {
@@ -28,8 +26,6 @@ public:
     virtual QString toString() const;
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLLIMIT_H

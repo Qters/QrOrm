@@ -6,9 +6,7 @@
 
 #include "qrorm_global.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  * common interface for all SQL elements to build SQL query
@@ -37,8 +35,6 @@ protected:
     QList<QVariant> listValues;      // List of values associated to SQL element
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLELEMENT_H

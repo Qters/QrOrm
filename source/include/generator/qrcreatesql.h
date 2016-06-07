@@ -3,9 +3,7 @@
 
 #include "generator/qrsqlgenerator.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  * \brief PRIMARY KEY was setting by QrSqlTable::pkIdName(), it would be auto increment
@@ -23,8 +21,6 @@ private:
     QString getVariantType(const QVariant &variant) const;
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRCREATESQL_H

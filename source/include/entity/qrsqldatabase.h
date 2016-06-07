@@ -7,9 +7,7 @@
 #include "qrorm_global.h"
 #include "singleton/qrsingleton.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  * \brief define all parameters to connect to database
@@ -65,8 +63,6 @@ private:
     static QSqlDatabase null;   //  null object
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLDATABASE_H

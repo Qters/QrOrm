@@ -4,9 +4,7 @@
 #include "qrorm_global.h"
 #include "singleton/qrsingleton.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 class QRORMSHARED_EXPORT QrSqlConfig : public QrCommon::QrSingleton<QrOrm::QrSqlConfig> {
     QR_SINGLETON_DEFINE(QrSqlConfig)
@@ -37,8 +35,6 @@ private:
     placeholder_style placeholderStyle; //  Place holder style to build sql query
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLCONFIG_H

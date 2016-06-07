@@ -4,9 +4,7 @@
 #include "qrorm_global.h"
 #include "generator/element/qrsqlelement.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  * \brief SQL element to sort or to group list of elements fetched from database (ORDER BY, GROUP BY)
@@ -28,8 +26,6 @@ protected:
    QrSqlSort::SortType type;
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLSORT_H

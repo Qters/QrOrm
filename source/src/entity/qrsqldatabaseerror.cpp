@@ -3,7 +3,7 @@
 #include <QtCore/qdebug.h>
 #include <QtSql/qsqlerror.h>
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 void QrSqlDatabaseError::displayLastError(const QSqlDatabase &db, const QString &description)
 {

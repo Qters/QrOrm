@@ -6,9 +6,7 @@
 
 #include "entity/qrsqlquery.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  *
@@ -30,9 +28,7 @@ private:
     QList<CLASS_NAME *> container;
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #include "qrdbresultsguard.inl"
 

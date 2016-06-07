@@ -4,7 +4,7 @@
 #include <QtCore/qdebug.h>
 #include "generator/qrsqlgenerator.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 void QrSqlTable::dumpValues() {
     int count = this->metaObject ()->propertyCount ();

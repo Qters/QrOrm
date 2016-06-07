@@ -2,7 +2,7 @@
 
 #include "entity/qrsqlconfig.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QrSqlIsBetween::QrSqlIsBetween()
     : QrSqlElement(0), type(is_between) {}

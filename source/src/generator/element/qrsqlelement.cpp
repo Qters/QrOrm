@@ -2,7 +2,7 @@
 
 #include "entity/qrsqlconfig.h"
 
-using namespace Qters::QrOrm;
+USING_NS_QRORM;
 
 QrSqlElement::QrSqlElement(int _index) : index(_index) { }
 

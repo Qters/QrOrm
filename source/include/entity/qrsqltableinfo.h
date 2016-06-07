@@ -4,9 +4,7 @@
 #include "qrorm_global.h"
 #include "entity/qrsqltable.h"
 
-namespace Qters {
-
-namespace QrOrm {
+NS_QRORM_BEGIN
 
 /*!
  * \brief PRAGMA table_info('testTable');
@@ -58,8 +56,6 @@ private:
 
 };
 
-}   //  namespace QrOrm
-
-}   //  namespace Qters
+NS_QRORM_END
 
 #endif // QRSQLTABLEINFO_H
