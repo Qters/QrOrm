@@ -69,6 +69,11 @@ void QrSqlDatabase::setParams(const QrSqlDatabaseParams &value)
     params = value;
 }
 
+void QrSqlDatabase::setFolderPath(const QString &folderPath)
+{
+    params.folder = folderPath;
+}
+
 QString QrSqlDatabase::connectionName() const
 {
     return params.databaseName +
