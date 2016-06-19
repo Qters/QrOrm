@@ -13,9 +13,9 @@ QString QrSqlSort::toString() const
     QString statement;
 
     switch (type) {
-    case order_asc:     statement = "order by"; break;
-    case order_desc:    statement = "order by"; break;
-    case group_by:      statement = "group by"; break;
+    case order_asc:     statement = "order by "; break;
+    case order_desc:    statement = "order by "; break;
+    case group_by:      statement = "group by "; break;
     default:        Q_ASSERT(false);    break;
     }
 
