@@ -28,6 +28,7 @@ QSqlError QrSqlHelper::call_query(QrSqlQuery &query, QSqlDatabase *database /* =
         return dbError;
     }
 
+    //  set is print sql query statement or not
     QSqlQuery qQuery = QSqlQuery(*database);
     qQuery.setForwardOnly (true);
 
