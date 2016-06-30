@@ -39,11 +39,6 @@ public:
 
     const QrSqlDatabaseParams& getParams() const;
     void setParams(const QrSqlDatabaseParams &value);
-    /*!
-     * \brief set folder path relative application position
-     * \param folderPath
-     */
-    void setFolderPath(const QString& folderPath);
 
 protected:
     QrSqlDatabase() = default;
