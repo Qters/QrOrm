@@ -60,8 +60,10 @@ bool QrSqlHelper::makesureDbExist(QrSqlDatabase *database)
     }
 
     const QString dbPath = database->getDatabasePath();
-    if (QrCommon::QrFiler::fileExists (dbPath)) {
-        return true;
+    qDebug() << "check database " << dbPath;
+    if (! QrCommon::QrFiler::fileExists (dbPath)) {
+        qDebug() << "database is not exist";
+        return false;
     }
 
     QDir dbDir(database->getParams().folder);
@@ -76,6 +78,7 @@ bool QrSqlHelper::makesureDbExist(QrSqlDatabase *database)
     QSqlDatabase newDatabase = QSqlDatabase::addDatabase("QSQLITE");
     newDatabase.setDatabaseName(dbPath);
 
+    qDebug() << "open database...";
     bool success = false;
     if (newDatabase.open()) {
         success = true;
