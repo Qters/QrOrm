@@ -45,7 +45,7 @@ protected:
     virtual ~QrSqlDatabase() = default;
 
 protected:
-    virtual QString connectionName() const;
+    virtual QString connectionName();
 
 private:
     QSqlDatabase getDatabase(QSqlError & dbError);

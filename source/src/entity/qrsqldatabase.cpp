@@ -22,11 +22,13 @@ QSqlDatabase QrSqlDatabase::createDatabase(QSqlError &dbError)
     QString connectionName_ = connectionName();
     dbError = QSqlError();
 
-    if (! QrFiler::fileExists (getDatabasePath ())) {
-        dbError = QSqlError("'database file is not exist!'", "", QSqlError::ConnectionError);
-        Q_ASSERT(false);
-        return QrSqlDatabase::null;
-    }
+    qDebug() << "create database:" << getDatabasePath () << "," << connectionName_;
+//    if (! QrFiler::fileExists (getDatabasePath ())) {
+//        qDebug() << "database path is not exist:" << getDatabasePath ();
+//        dbError = QSqlError("'database file is not exist!'", "", QSqlError::ConnectionError);
+//        Q_ASSERT(false);
+//        return QrSqlDatabase::null;
+//    }
 
     const QrSqlDatabaseParams &params = getParams ();
     Q_ASSERT(!params.driverName.isEmpty () && !params.databaseName.isEmpty ());
@@ -41,6 +43,7 @@ QSqlDatabase QrSqlDatabase::createDatabase(QSqlError &dbError)
     }
 
     if (! db.open ()) {
+        qDebug() << "fail to open database";
         QrSqlDatabaseError::displayLastError (db, "unable to open connection to database");
         dbError = db.lastError ();
         if (!dbError.isValid ()) {
@@ -69,7 +72,7 @@ void QrSqlDatabase::setParams(const QrSqlDatabaseParams &value)
     params = value;
 }
 
-QString QrSqlDatabase::connectionName() const
+QString QrSqlDatabase::connectionName()
 {
     return params.databaseName +
             QrStringCvter<Qt::HANDLE, QrIsPointer<Qt::HANDLE>::value>::toString (QThread::currentThreadId ());
