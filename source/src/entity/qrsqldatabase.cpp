@@ -22,13 +22,16 @@ QSqlDatabase QrSqlDatabase::createDatabase(QSqlError &dbError)
     QString connectionName_ = connectionName();
     dbError = QSqlError();
 
+    dbFileIsCreated = false;
     qDebug() << "create database:" << getDatabasePath () << "," << connectionName_;
-//    if (! QrFiler::fileExists (getDatabasePath ())) {
+    if (! QrFiler::fileExists (getDatabasePath ())) {
 //        qDebug() << "database path is not exist:" << getDatabasePath ();
 //        dbError = QSqlError("'database file is not exist!'", "", QSqlError::ConnectionError);
 //        Q_ASSERT(false);
 //        return QrSqlDatabase::null;
-//    }
+        dbFileIsCreated = true;
+        qDebug() << "database file is not exist, ready to creating...";
+    }
 
     const QrSqlDatabaseParams &params = getParams ();
     Q_ASSERT(!params.driverName.isEmpty () && !params.databaseName.isEmpty ());
@@ -59,8 +62,6 @@ QSqlDatabase QrSqlDatabase::createDatabase(QSqlError &dbError)
     QString curThreadId = QrStringCvter<Qt::HANDLE, QrIsPointer<Qt::HANDLE>::value>::toString (curThreadIdHandle);
     qDebug() << "create new database connection of " << params.databaseName
              << "in thread " << curThreadId << " with key " << connectionName_;
-
-    callAfterSuccessCreateDatabase();
 
     return QSqlDatabase::database(connectionName_);
 }
@@ -118,7 +119,8 @@ QSqlDatabase QrSqlDatabase::getDatabase(QSqlError &dbError)
 
 QSqlDatabase QrSqlDatabase::getDatabaseByCurThreadId(QSqlError &dbError)
 {
-    QMutexLocker locker(&mutexDb);
+//    QMutexLocker locker(&mutexDb);
+    mutexDb.lock();
     dbError = QSqlError();
 
     Qt::HANDLE curThreadIdHandle = QThread::currentThreadId ();
@@ -126,17 +128,30 @@ QSqlDatabase QrSqlDatabase::getDatabaseByCurThreadId(QSqlError &dbError)
         qDebug() << "unable to find current thread id";
         dbError = QSqlError("'unable to find current thread id'", "", QSqlError::UnknownError);
         Q_ASSERT(false);
+        mutexDb.unlock();
         return QrSqlDatabase::null;
     }
 
     if (! listDbByThread.contains (curThreadIdHandle)) {
-        return createDatabase (dbError);
+        auto db = createDatabase (dbError);
+        mutexDb.unlock();
+        if(dbFileIsCreated) {
+            callAfterSuccessCreateDatabase();
+        }
+        return db;
     }
 
     QString connectionName = listDbByThread.value (curThreadIdHandle);
     if (! QSqlDatabase::contains (connectionName)) {
-        return createDatabase (dbError);
+        auto db = createDatabase (dbError);
+        mutexDb.unlock();
+        if(dbFileIsCreated) {
+            callAfterSuccessCreateDatabase();
+        }
+        return db;
     }
 
-    return QSqlDatabase::database (connectionName);
+    auto db = QSqlDatabase::database (connectionName);
+    mutexDb.unlock();
+    return db;
 }

@@ -61,6 +61,7 @@ private:
     QrSqlDatabaseParams params;
 
 private:
+    bool dbFileIsCreated = false;
     static QSqlDatabase null;   //  null object
 };
 
