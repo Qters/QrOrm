@@ -53,14 +53,15 @@ QSqlDatabase QrSqlDatabase::createDatabase(QSqlError &dbError)
         return QrSqlDatabase::null;
     }
 
-    callAfterSuccessCreateDatabase();
-
     Qt::HANDLE curThreadIdHandle = QThread::currentThreadId ();
     listDbByThread.insert (curThreadIdHandle, connectionName_);
 
     QString curThreadId = QrStringCvter<Qt::HANDLE, QrIsPointer<Qt::HANDLE>::value>::toString (curThreadIdHandle);
     qDebug() << "create new database connection of " << params.databaseName
              << "in thread " << curThreadId << " with key " << connectionName_;
+
+    callAfterSuccessCreateDatabase();
+
     return QSqlDatabase::database(connectionName_);
 }
 
