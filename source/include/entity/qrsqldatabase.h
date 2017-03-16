@@ -46,6 +46,7 @@ protected:
 
 protected:
     virtual QString connectionName();
+    virtual void callAfterSuccessCreateDatabase();
 
 private:
     QSqlDatabase getDatabase(QSqlError & dbError);
