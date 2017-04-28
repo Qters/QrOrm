@@ -20,9 +20,6 @@ class QRORMSHARED_EXPORT QrSqlTable : public QObject
     Q_PROPERTY(long pk_id READ getPkId WRITE setPkId)
 
 public:
-    static QString pkIdName();
-
-public:
     /*!
      * \brief dump all member values of object
      */
@@ -30,6 +27,7 @@ public:
 
 public:
     virtual QString tableName() const = 0;
+    virtual QString pkIdName() const;
 
 public:
     virtual void addCustomizedDBVals(const QPair<QString, QVariant>& selfval);

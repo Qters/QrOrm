@@ -16,14 +16,14 @@ QString QrCreateSql::getSqlStatement()
     }
 
     QString createSql = "CREATE TABLE " + getTable()->tableName() +
-            "( " + QrSqlTable::pkIdName() + " INTEGER PRIMARY KEY AUTOINCREMENT, ";
+            "( " + getTable()->pkIdName() + " INTEGER PRIMARY KEY AUTOINCREMENT, ";
 
     auto metaObject = getTable()->metaObject ();
     int count = metaObject->propertyCount ();
     for (int propertyIdx = 0; propertyIdx < count; ++propertyIdx) {
         QMetaProperty metaproperty = metaObject->property(propertyIdx);
         const QString metaPropName = QString(metaproperty.name());
-        if (QrSqlGenerator::isFilterProperty(metaPropName)) {
+        if (QrSqlGenerator::isFilterProperty(getTable(), metaPropName)) {
             continue;
         }
         createSql += metaPropName + " " + getVariantType(metaproperty.type());

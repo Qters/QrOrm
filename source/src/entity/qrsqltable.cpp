@@ -12,7 +12,7 @@ void QrSqlTable::dumpValues() {
     for (int idx = 0; idx < count; ++idx) {
         QMetaProperty metaproperty = this->metaObject ()->property(idx);
         const char *name = metaproperty.name();
-        if (QrSqlGenerator::isFilterProperty(QString(name))) {
+        if (QrSqlGenerator::isFilterProperty(this, QString(name))) {
             continue;
         }
         QVariant value = this->property(name);
@@ -53,6 +53,7 @@ void QrSqlTable::setPkId(long value)
     pk_id = value;
 }
 
-QString QrSqlTable::pkIdName() {
+QString QrSqlTable::pkIdName() const
+{
     return "pk_id";
 }

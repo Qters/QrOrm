@@ -88,7 +88,7 @@ class QRORMSHARED_EXPORT QrSqlGenerator
     QR_DECLARE_PRIVATE(QrSqlGenerator)
 
 public:
-    static bool isFilterProperty(const QString& propertyName) ;
+    static bool isFilterProperty(QrSqlTable *table, const QString& propertyName) ;
 
 public:
     QrSqlGenerator();

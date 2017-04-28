@@ -827,8 +827,11 @@ QrSqlGenerator &QrSqlGenerator::setTable(QrSqlTable *value)
     return (* this);
 }
 
-bool QrSqlGenerator::isFilterProperty(const QString &propertyName)  {
-    return QrSqlTable::pkIdName() == propertyName
+bool QrSqlGenerator::isFilterProperty(QrSqlTable *table, const QString &propertyName)  {
+    if(nullptr == table){
+        return true;
+    }
+    return table->pkIdName() == propertyName
             || "objectName" == propertyName ;
 }
 
