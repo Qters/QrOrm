@@ -47,7 +47,7 @@ private:
     double price;
 };
 
-class TESTSUITE(tst_orm) tst_orm : public QObject
+class TESTSUITE(tst_orm) : public QObject
 {
     Q_OBJECT
 
