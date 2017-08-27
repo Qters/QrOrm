@@ -48,6 +48,13 @@ public:
       *
       */
     static bool makesureDbExist(QrSqlDatabase *database);
+    /*!
+     * \brief makeTableExist
+     * \param table
+     * \param database
+     * \return
+     */
+    static bool makesureTableExist(QrSqlTable* table, QrSqlDatabase *database);
 };
 
 //template<typename T>

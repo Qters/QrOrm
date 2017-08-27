@@ -18,6 +18,7 @@
 #include "generator/qrinsertsql.h"
 #include "generator/qrupdatesql.h"
 #include "generator/qrdeletesql.h"
+#include "generator/qrcreatesql.h"
 
 USING_NS_QRORM;
 
@@ -28,9 +29,8 @@ QSqlError QrSqlHelper::call_query(QrSqlQuery &query, QSqlDatabase *database /* =
         return dbError;
     }
 
-    //  set is print sql query statement or not
     QSqlQuery qQuery = QSqlQuery(*database);
-    qQuery.setForwardOnly (true);
+    qQuery.setForwardOnly(true);
 
     QTime timeQuery;
     timeQuery.start ();
@@ -44,6 +44,7 @@ QSqlError QrSqlHelper::call_query(QrSqlQuery &query, QSqlDatabase *database /* =
     query.resolveOutput(qQuery, true);
 
     int ms = timeQuery.elapsed ();
+    //  set is print sql query statement or not
     if (QrSqlConfig::getInstance ()->getTraceSqlQuery ()) {
         qDebug() << "custom sql query "<< "(" <<ms << " ms) : " << query.query ()
                  << " by " << database;
@@ -89,4 +90,16 @@ bool QrSqlHelper::makesureDbExist(QrSqlDatabase *database)
     newDatabase.close();
 
     return success;
+}
+
+bool QrSqlHelper::makesureTableExist(QrSqlTable *table, QrSqlDatabase *database)
+{
+    QrCreateSql createSql;
+    auto error = QrSqlHelper::call_query(createSql.setTable(table).getSqlQuery(), &database->getDatabase());
+    if (error.isValid()) {
+        qWarning() << "could't create " << table->tableName() << ", " << error.text();
+        return false;
+    }
+
+    return true;
 }
